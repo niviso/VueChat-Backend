@@ -1,6 +1,10 @@
 <?php
 
-    class IndexController
+include 'dao.php';
+
+$d = new dao();
+
+    class MessagesController
     {
         private $model;
 

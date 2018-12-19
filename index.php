@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Europe/Paris');//or change to whatever timezone you want
 
     $url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'],'/')) : '/';
 
@@ -45,7 +46,6 @@
 
         if (file_exists($ctrlPath))
         {
-
             require_once __DIR__.'/Models/'.$requestedController.'_model.php';
             require_once __DIR__.'/Controllers/'.$requestedController.'_controller.php';
             require_once __DIR__.'/Views/'.$requestedController.'_view.php';
