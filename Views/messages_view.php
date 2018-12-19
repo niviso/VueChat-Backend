@@ -20,23 +20,11 @@
             return $this->controller->Attached();
         }
         public function thread($vars){
-          //from id
-          //to id
           $fromId = $vars[0];
           $toId = $vars[1];
 
-          //EXAMPLE JSON OBJ
-          $thread = "
-          {
-            fromId: ".$fromId.",
-            toId: ".$toId.",
-            message: 'test',
-            timestamp: '2018-01-01'
-          }
-          ";
-
           $data = $this->controller->getThread($fromId,$toId);
-          echo json_encode($data);
+          echo json_encode($data,JSON_FORCE_OBJECT);
 
         }
 

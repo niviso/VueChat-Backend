@@ -18,5 +18,15 @@ class dao extends dbconnect {
        $result = $this->conn->query($sql);
        return $result;
     }
+
+    public function insert( $table , $vars='' , $values='',$other='' ){
+       if($values != '' ){  // condition was wrong
+         $values = 'VALUES (' . $values .')'; // Added space
+       }
+       $sql = "INSERT INTO  ".$table." (".$vars.") " .$values. " " .$other;
+      // $sele = mysqli_query($this->conn, $sql) or die(mysqli_error($this->conn));
+       $result = $this->conn->query($sql) or die('error on insert, '.$sql);
+       return $result;
+    }
    }
 ?>

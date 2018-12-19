@@ -23,7 +23,9 @@ include 'dao.php';
           $select = "message";
           $and = "fromId IN (" . $from . "," . $to . ") AND toId IN (" . $to . "," . $from . ")";
           $order = "ORDER BY timestamp ASC";
-          $thread = $dataBase->select($select,$and,$order ) or die('error from here');
+          //          $thread = $dataBase->insert($select,"fromId,toId,message","1,0,'DU E COOL'","" );
+
+          $thread = $dataBase->select($select,$and,$order ) or die('Error on select');
           $data = array();
 
           while ($row = $thread->fetch_assoc()) {
@@ -31,6 +33,7 @@ include 'dao.php';
           }
           return $data;
         }
+
 
 
     }
