@@ -20,8 +20,16 @@ include 'dao.php';
 
         public function getThread($from,$to){
           $dataBase = new dao();
-          $sel = $dataBase->select("message" ,"fromId=".$from." AND toId=".$to,"" ) or die('error from here');
-          return $result = mysqli_fetch_object($sel);
+          $select = "message";
+          $and = "fromId IN (" . $from . "," . $to . ") AND toId IN (" . $to . "," . $from . ")";
+          $order = "ORDER BY timestamp ASC";
+          $thread = $dataBase->select($select,$and,$order ) or die('error from here');
+          $data = array();
+
+          while ($row = $thread->fetch_assoc()) {
+            $data[] = $row;
+          }
+          return $data;
         }
 
 

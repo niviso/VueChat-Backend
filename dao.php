@@ -14,9 +14,9 @@ class dao extends dbconnect {
          $where = 'where ' . $where; // Added space
        }
        $sql = "SELECT * FROM  ".$table." " .$where. " " .$other;
-       $sele = mysqli_query($this->conn, $sql) or die(mysqli_error($this->conn));
-       // echo $sele; // don't use echo statement because - Object of class mysqli_result could not be converted to string
-       return $sele;
+      // $sele = mysqli_query($this->conn, $sql) or die(mysqli_error($this->conn));
+       $result = $this->conn->query($sql);
+       return $result;
     }
    }
 ?>

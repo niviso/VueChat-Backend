@@ -36,7 +36,7 @@
           ";
 
           $data = $this->controller->getThread($fromId,$toId);
-          return json_encode($data);
+          echo json_encode($data);
 
         }
 
