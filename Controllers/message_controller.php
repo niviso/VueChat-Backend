@@ -3,7 +3,7 @@
 include 'dao.php';
 
 
-    class MessagesController
+    class MessageController
     {
         private $model;
         private $dataBase;
@@ -23,15 +23,26 @@ include 'dao.php';
           $select = "message";
           $and = "fromId IN (" . $from . "," . $to . ") AND toId IN (" . $to . "," . $from . ")";
           $order = "ORDER BY timestamp ASC";
-          //          $thread = $dataBase->insert($select,"fromId,toId,message","1,0,'DU E COOL'","" );
-
           $thread = $dataBase->select($select,$and,$order ) or die('Error on select');
+
           $data = array();
 
           while ($row = $thread->fetch_assoc()) {
             $data[] = $row;
           }
           return $data;
+        }
+
+        public function addMessage($from,$to,$message){
+          $dataBase = new dao();
+          $select = "message";
+          $vars = "fromid,toid,message";
+          $values = $from.",".$to.",'".$message."'";
+          $data = $dataBase->insert($select,$vars,$values);
+          return $data;
+        }
+        public function deleteMessage(){
+          
         }
 
 

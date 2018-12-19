@@ -1,6 +1,6 @@
 <?php
 
-    class MessagesModel
+    class MessageModel
     {
 
         function __construct()

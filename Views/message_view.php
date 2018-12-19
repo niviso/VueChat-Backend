@@ -1,6 +1,6 @@
 <?php
 
-    class MessagesView
+    class MessageView
     {
 
         private $model;
@@ -25,6 +25,13 @@
 
           $data = $this->controller->getThread($fromId,$toId);
           echo json_encode($data,JSON_FORCE_OBJECT);
+        }
+        public function insert($vars){
+          $fromId = $vars[0];
+          $toId = $vars[1];
+          $message = $vars[2];
+          $data = $this->controller->addMessage($fromId,$toId,$message);
+          echo json_encode($data);
 
         }
 
