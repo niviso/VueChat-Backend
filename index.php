@@ -61,10 +61,8 @@ date_default_timezone_set('Europe/Paris');//or change to whatever timezone you w
             // If there is a method - Second parameter
             if ($requestedAction != '')
             {
-                // then we call the method via the view
-                // dynamic call of the view
+                // call view
                 print $viewObj->$requestedAction($requestedParams);
-
             }
 
         }else{

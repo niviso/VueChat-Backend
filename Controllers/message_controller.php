@@ -33,16 +33,16 @@ include 'dao.php';
           return $data;
         }
 
-        public function addMessage($from,$to,$message){
+        public function addMessage($from,$to,$text){
           $dataBase = new dao();
           $select = "message";
-          $vars = "fromid,toid,message";
-          $values = $from.",".$to.",'".$message."'";
+          $vars = "fromid,toid,text";
+          $values = $from.",".$to.",'".$text."'";
           $data = $dataBase->insert($select,$vars,$values);
           return $data;
         }
         public function deleteMessage(){
-          
+
         }
 
 
